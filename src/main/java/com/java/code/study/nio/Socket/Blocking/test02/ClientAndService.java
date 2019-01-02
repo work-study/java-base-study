@@ -29,7 +29,7 @@ public class ClientAndService {
             sChannel.write(buf);
             buf.clear();
         }
-
+        //关闭，防止阻塞
         sChannel.shutdownOutput();
 
         //接收服务端的反馈

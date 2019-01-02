@@ -23,6 +23,9 @@ import java.util.Set;
  * @date 16:26 2018/12/19
  */
 public class TestChannal {
+    /**
+     * 通道实现文件的复制
+     * */
     @Test
     public void test1() {
         FileInputStream fis = null;
@@ -41,6 +44,7 @@ public class TestChannal {
             //获取缓冲区
             ByteBuffer buffer = ByteBuffer.allocate(10);
             while (inChannel.read(buffer) != -1) {
+                //buffer.flip();
                 outChannel.write(buffer);
                 buffer.clear();
             }

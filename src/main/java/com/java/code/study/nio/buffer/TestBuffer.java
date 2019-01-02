@@ -44,7 +44,7 @@ public class TestBuffer {
 
 
         //4. 利用 get() 读取缓冲区中的数据
-        byte[] dst = new byte[buf.limit()];
+        byte[] dst = new byte[buf.limit()-3];
         buf.get(dst);
         System.out.println(new String(dst, 0, dst.length));
 
@@ -53,6 +53,12 @@ public class TestBuffer {
         System.out.println(buf.limit());
         System.out.println(buf.capacity());
 
+        //再次写入，会比较limit和position的值
+        buf.put("aa".getBytes());
+        System.out.println("-----------------put again----------------");
+        System.out.println(buf.position());
+        System.out.println(buf.limit());
+        System.out.println(buf.capacity());
         //5. rewind() : 可重复读
         buf.rewind();
 
@@ -100,7 +106,6 @@ public class TestBuffer {
 
         //判断缓冲区中是否还有剩余数据
         if(buf.hasRemaining()){
-
             //获取缓冲区中可以操作的数量
             System.out.println(buf.remaining());
         }
