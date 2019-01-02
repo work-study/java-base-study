@@ -51,12 +51,12 @@ public class TestLambda01 {
     @Test
     public void test04() {
         //第5点,过滤然后打印
-        employeeList.stream().filter((e)->e.getSalary()>5000).forEach(System.out::println);
-        //过滤，取前两个然后打印
+        employeeList.stream().filter((e)->e.getSalary()>5000).limit(10).forEach(System.out::println);
+       /* //过滤，取前两个然后打印
         employeeList.stream().filter((e)->e.getSalary()>5000).limit(2).forEach(System.out::println);
 
         //过滤把名字提取出来然后打印出来
-        employeeList.stream().filter((e)->e.getSalary()>5000).map(Employee::getName).forEach(System.out::println);
+        employeeList.stream().filter((e)->e.getSalary()>5000).map(Employee::getName).forEach(System.out::println);*/
     }
     private List<Employee> filterEmployee(List<Employee> employeeList, MyPredicate<Employee> mp) {
         List<Employee> employees = new ArrayList<>();
